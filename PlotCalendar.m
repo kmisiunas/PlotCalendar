@@ -119,7 +119,7 @@ monthHeatMap[dataRaw_, {year_, month_}, opts: OptionsPattern[PlotCalendar]]:= Mo
   (* select data that is in that month *)
   data = Select[ dataRaw, #[[1,1,1]] === year && #[[1,1,2]] === month &];
   (*calculate xy postion for the each date*)
-  rectposition[{y_,m_,d_}]:=Module[
+  rectposition[{y_,m_,d_,___}]:=Module[
     {lx,ly},
     lx=Ceiling[(DayCount[{y,1,1},{y,m,d}]+monthstart[1,y])/7.0];
     ly=7-DayName[{y,m,d}]/.dayindex;
